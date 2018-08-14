@@ -1,0 +1,173 @@
+Configure miss: openssl/ssl.h usability
+Configure miss: openssl/ssl.h presence
+Configure miss: openssl/ssl.h
+Configure miss: sys/ioccom.h usability
+Configure miss: sys/ioccom.h presence
+Configure miss: sys/ioccom.h
+Configure miss: net/bpf.h usability
+Configure miss: net/bpf.h presence
+Configure miss: net/bpf.h
+Configure miss: lua5.3/lua.h usability
+Configure miss: lua5.3/lua.h presence
+Configure miss: lua5.3/lua.h
+Configure miss: lua/5.3/lua.h usability
+Configure miss: lua/5.3/lua.h presence
+Configure miss: lua/5.3/lua.h
+Configure miss: lua.h usability
+Configure miss: lua.h presence
+Configure miss: lua.h
+Configure miss: lua/lua.h usability
+Configure miss: lua/lua.h presence
+Configure miss: lua/lua.h
+Configure miss: lua version == 503
+Configure miss: linear.h usability
+Configure miss: linear.h presence
+Configure miss: linear.h
+Configure miss: if struct in_addr is a wacky huge structure (some Sun boxes)
+Configure miss: svn_client.h usability
+Configure miss: svn_client.h presence
+Configure miss: svn_client.h
+Configure miss: subversion-1/svn_client.h usability
+Configure miss: subversion-1/svn_client.h presence
+Configure miss: subversion-1/svn_client.h
+Configure miss: library containing nl_handle_alloc
+Configure miss: openssl/ssl.h usability
+Configure miss: openssl/ssl.h presence
+Configure miss: openssl/ssl.h
+Configure miss: sys/ioccom.h usability
+Configure miss: sys/ioccom.h presence
+Configure miss: sys/ioccom.h
+Configure miss: net/bpf.h usability
+Configure miss: net/bpf.h presence
+Configure miss: net/bpf.h
+Configure miss: if sockaddr{} has sa_len member
+Configure miss: if sockaddr_in{} has sin_len member
+Configure miss: if sockaddr_in6{} has sin6_len member
+Configure miss: if struct in_addr is a wacky huge structure (some Sun boxes)
+Configure miss: putmsg in -lstr
+Configure miss: open_mib in -lnm
+Configure miss: Check
+Configure miss: sys/bufmod.h usability
+Configure miss: sys/bufmod.h presence
+Configure miss: sys/bufmod.h
+Configure miss: sys/dlpi.h usability
+Configure miss: sys/dlpi.h presence
+Configure miss: sys/dlpi.h
+Configure miss: sys/dlpihdr.h usability
+Configure miss: sys/dlpihdr.h presence
+Configure miss: sys/dlpihdr.h
+Configure miss: sys/dlpi_ext.h usability
+Configure miss: sys/dlpi_ext.h presence
+Configure miss: sys/dlpi_ext.h
+Configure miss: sys/mib.h usability
+Configure miss: sys/mib.h presence
+Configure miss: sys/mib.h
+Configure miss: sys/ndd_var.h usability
+Configure miss: sys/ndd_var.h presence
+Configure miss: sys/ndd_var.h
+Configure miss: net/bpf.h usability
+Configure miss: net/bpf.h presence
+Configure miss: net/bpf.h
+Configure miss: net/if_var.h usability
+Configure miss: net/if_var.h presence
+Configure miss: net/if_var.h
+Configure miss: net/pfilt.h usability
+Configure miss: net/pfilt.h presence
+Configure miss: net/pfilt.h
+Configure miss: net/pfvar.h usability
+Configure miss: net/pfvar.h presence
+Configure miss: net/pfvar.h
+Configure miss: net/radix.h usability
+Configure miss: net/radix.h presence
+Configure miss: net/radix.h
+Configure miss: net/raw.h usability
+Configure miss: net/raw.h presence
+Configure miss: net/raw.h
+Configure miss: netinet/in_var.h usability
+Configure miss: netinet/in_var.h presence
+Configure miss: netinet/in_var.h
+Configure miss: netinet/in6_var.h usability
+Configure miss: netinet/in6_var.h presence
+Configure miss: netinet/in6_var.h
+Configure miss: net/if_tun.h usability
+Configure miss: net/if_tun.h presence
+Configure miss: net/if_tun.h
+Configure miss: netinet/ip_fw.h usability
+Configure miss: netinet/ip_fw.h presence
+Configure miss: netinet/ip_fw.h
+Configure miss: linux/ip_fw.h usability
+Configure miss: linux/ip_fw.h presence
+Configure miss: linux/ip_fw.h
+Configure miss: linux/ip_fwchains.h usability
+Configure miss: linux/ip_fwchains.h presence
+Configure miss: linux/ip_fwchains.h
+Configure miss: linux/netfilter_ipv4/ipchains_core.h usability
+Configure miss: linux/netfilter_ipv4/ipchains_core.h presence
+Configure miss: linux/netfilter_ipv4/ipchains_core.h
+Configure miss: ip_fil_compat.h usability
+Configure miss: ip_fil_compat.h presence
+Configure miss: ip_fil_compat.h
+Configure miss: netinet/ip_fil_compat.h usability
+Configure miss: netinet/ip_fil_compat.h presence
+Configure miss: netinet/ip_fil_compat.h
+Configure miss: ip_compat.h usability
+Configure miss: ip_compat.h presence
+Configure miss: ip_compat.h
+Configure miss: netinet/ip_compat.h usability
+Configure miss: netinet/ip_compat.h presence
+Configure miss: netinet/ip_compat.h
+Configure miss: ip_fil.h usability
+Configure miss: ip_fil.h presence
+Configure miss: ip_fil.h
+Configure miss: netinet/ip_fil.h usability
+Configure miss: netinet/ip_fil.h presence
+Configure miss: netinet/ip_fil.h
+Configure miss: hpsecurity.h usability
+Configure miss: hpsecurity.h presence
+Configure miss: hpsecurity.h
+Configure miss: sa_len in sockaddr struct
+Configure miss: rt_msghdr struct in <net/route.h>
+Configure miss: Berkeley Packet Filter
+Configure miss: SNMP MIB2 STREAMS
+Configure miss: route(7) STREAMS
+Configure miss: raw IP sockets ip_{len,off} host byte ordering
+Configure miss: cooked raw IP sockets
+Configure miss: getkerninfo
+Configure miss: mach-o/dyld.h usability
+Configure miss: mach-o/dyld.h presence
+Configure miss: mach-o/dyld.h
+Configure miss: if sockaddr{} has sa_len member
+Configure miss: asnprintf
+Configure miss: openssl/ssl.h usability
+Configure miss: openssl/ssl.h presence
+Configure miss: openssl/ssl.h
+Configure miss: kevent
+Configure miss: net/bpf.h usability
+Configure miss: net/bpf.h presence
+Configure miss: net/bpf.h
+Configure miss: openssl/ssl.h usability
+Configure miss: openssl/ssl.h presence
+Configure miss: openssl/ssl.h
+Configure miss: openssl/ssl.h usability
+Configure miss: openssl/ssl.h presence
+Configure miss: openssl/ssl.h
+Configure miss: sys/ioccom.h usability
+Configure miss: sys/ioccom.h presence
+Configure miss: sys/ioccom.h
+Configure miss: net/bpf.h usability
+Configure miss: net/bpf.h presence
+Configure miss: net/bpf.h
+Configure miss: odm_initialize in -lodm
+Configure miss: _system_configuration in -lcfg
+Configure miss: lua5.3/lua.h usability
+Configure miss: lua5.3/lua.h presence
+Configure miss: lua5.3/lua.h
+Configure miss: lua/5.3/lua.h usability
+Configure miss: lua/5.3/lua.h presence
+Configure miss: lua/5.3/lua.h
+Configure miss: lua.h usability
+Configure miss: lua.h presence
+Configure miss: lua.h
+Configure miss: lua/lua.h usability
+Configure miss: lua/lua.h presence
+Configure miss: lua/lua.h

@@ -1,0 +1,9 @@
+7.70
+libnl-dev
+zlib-dev
+libpcap-dev
+pcre-dev
+readline-dev
+bzip2-dev
+pkgconfig(zlib)
+apr-dev
