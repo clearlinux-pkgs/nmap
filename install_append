@@ -1,0 +1,1 @@
+ln -s ncat %{buildroot}/usr/bin/nc

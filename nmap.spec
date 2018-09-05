@@ -4,7 +4,7 @@
 #
 Name     : nmap
 Version  : 7.70
-Release  : 5
+Release  : 6
 URL      : https://nmap.org/dist/nmap-7.70.tar.bz2
 Source0  : https://nmap.org/dist/nmap-7.70.tar.bz2
 Summary  : Network exploration tool and security scanner
@@ -100,7 +100,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1534285617
+export SOURCE_DATE_EPOCH=1536122028
 %configure --disable-static
 make  %{?_smp_mflags}
 
@@ -112,7 +112,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check ||:
 
 %install
-export SOURCE_DATE_EPOCH=1534285617
+export SOURCE_DATE_EPOCH=1536122028
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/nmap
 cp COPYING %{buildroot}/usr/share/doc/nmap/COPYING
@@ -125,6 +125,9 @@ cp libz/contrib/dotzlib/LICENSE_1_0.txt %{buildroot}/usr/share/doc/nmap/libz_con
 cp nping/COPYING %{buildroot}/usr/share/doc/nmap/nping_COPYING
 cp zenmap/COPYING_HIGWIDGETS %{buildroot}/usr/share/doc/nmap/zenmap_COPYING_HIGWIDGETS
 %make_install
+## install_append content
+ln -s ncat %{buildroot}/usr/bin/nc
+## install_append end
 
 %files
 %defattr(-,root,root,-)
@@ -132,6 +135,7 @@ cp zenmap/COPYING_HIGWIDGETS %{buildroot}/usr/share/doc/nmap/zenmap_COPYING_HIGW
 %files bin
 %defattr(-,root,root,-)
 %exclude /usr/bin/ncat
+/usr/bin/nc
 /usr/bin/nmap
 /usr/bin/nping
 
