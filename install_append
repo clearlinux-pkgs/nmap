@@ -1,1 +1,2 @@
 ln -s ncat %{buildroot}/usr/bin/nc
+ln -s ncat.1 %{buildroot}/usr/share/man/man1/nc.1

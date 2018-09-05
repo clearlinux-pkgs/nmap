@@ -1,2 +1,4 @@
 /usr/bin/ncat
+/usr/bin/nc
 /usr/share/man/man1/ncat.1
+/usr/share/man/man1/nc.1
