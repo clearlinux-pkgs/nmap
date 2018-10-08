@@ -4,16 +4,16 @@
 #
 Name     : nmap
 Version  : 7.70
-Release  : 8
+Release  : 9
 URL      : https://nmap.org/dist/nmap-7.70.tar.bz2
 Source0  : https://nmap.org/dist/nmap-7.70.tar.bz2
 Summary  : Network exploration tool and security scanner
 Group    : Development/Tools
 License  : BSD-3-Clause BSL-1.0 GPL-2.0 LGPL-2.1
-Requires: nmap-bin
-Requires: nmap-license
-Requires: nmap-man
-Requires: nmap-data
+Requires: nmap-bin = %{version}-%{release}
+Requires: nmap-data = %{version}-%{release}
+Requires: nmap-license = %{version}-%{release}
+Requires: nmap-man = %{version}-%{release}
 BuildRequires : apr-dev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-configure
@@ -25,6 +25,9 @@ BuildRequires : pcre-dev
 BuildRequires : pkgconfig(zlib)
 BuildRequires : readline-dev
 BuildRequires : zlib-dev
+Patch1: part1-CVE-2018-15173.patch
+Patch2: part2-CVE-2018-15173.patch
+Patch3: CVE-2018-15173.patch
 
 %description
 Nmap ("Network Mapper") is a free and open source utility
@@ -43,9 +46,9 @@ both console and graphical versions are available.
 %package bin
 Summary: bin components for the nmap package.
 Group: Binaries
-Requires: nmap-data
-Requires: nmap-license
-Requires: nmap-man
+Requires: nmap-data = %{version}-%{release}
+Requires: nmap-license = %{version}-%{release}
+Requires: nmap-man = %{version}-%{release}
 
 %description bin
 bin components for the nmap package.
@@ -57,15 +60,6 @@ Group: Data
 
 %description data
 data components for the nmap package.
-
-
-%package doc
-Summary: doc components for the nmap package.
-Group: Documentation
-Requires: nmap-man
-
-%description doc
-doc components for the nmap package.
 
 
 %package extras
@@ -94,13 +88,20 @@ man components for the nmap package.
 
 %prep
 %setup -q -n nmap-7.70
+%patch1 -p1
+%patch2 -p1
+%patch3 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1536122528
+export SOURCE_DATE_EPOCH=1539025829
+export CFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FCFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
+export CXXFLAGS="$CXXFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
 %configure --disable-static
 make  %{?_smp_mflags}
 
@@ -112,18 +113,18 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check ||:
 
 %install
-export SOURCE_DATE_EPOCH=1536122528
+export SOURCE_DATE_EPOCH=1539025829
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/nmap
-cp COPYING %{buildroot}/usr/share/doc/nmap/COPYING
-cp libdnet-stripped/LICENSE %{buildroot}/usr/share/doc/nmap/libdnet-stripped_LICENSE
-cp liblinear/COPYRIGHT %{buildroot}/usr/share/doc/nmap/liblinear_COPYRIGHT
-cp libpcap/LICENSE %{buildroot}/usr/share/doc/nmap/libpcap_LICENSE
-cp libpcre/LICENCE %{buildroot}/usr/share/doc/nmap/libpcre_LICENCE
-cp libssh2/COPYING %{buildroot}/usr/share/doc/nmap/libssh2_COPYING
-cp libz/contrib/dotzlib/LICENSE_1_0.txt %{buildroot}/usr/share/doc/nmap/libz_contrib_dotzlib_LICENSE_1_0.txt
-cp nping/COPYING %{buildroot}/usr/share/doc/nmap/nping_COPYING
-cp zenmap/COPYING_HIGWIDGETS %{buildroot}/usr/share/doc/nmap/zenmap_COPYING_HIGWIDGETS
+mkdir -p %{buildroot}/usr/share/package-licenses/nmap
+cp COPYING %{buildroot}/usr/share/package-licenses/nmap/COPYING
+cp libdnet-stripped/LICENSE %{buildroot}/usr/share/package-licenses/nmap/libdnet-stripped_LICENSE
+cp liblinear/COPYRIGHT %{buildroot}/usr/share/package-licenses/nmap/liblinear_COPYRIGHT
+cp libpcap/LICENSE %{buildroot}/usr/share/package-licenses/nmap/libpcap_LICENSE
+cp libpcre/LICENCE %{buildroot}/usr/share/package-licenses/nmap/libpcre_LICENCE
+cp libssh2/COPYING %{buildroot}/usr/share/package-licenses/nmap/libssh2_COPYING
+cp libz/contrib/dotzlib/LICENSE_1_0.txt %{buildroot}/usr/share/package-licenses/nmap/libz_contrib_dotzlib_LICENSE_1_0.txt
+cp nping/COPYING %{buildroot}/usr/share/package-licenses/nmap/nping_COPYING
+cp zenmap/COPYING_HIGWIDGETS %{buildroot}/usr/share/package-licenses/nmap/zenmap_COPYING_HIGWIDGETS
 %make_install
 ## install_append content
 ln -s ncat %{buildroot}/usr/bin/nc
@@ -920,10 +921,7 @@ ln -s ncat.1 %{buildroot}/usr/share/man/man1/nc.1
 /usr/share/nmap/scripts/xmlrpc-methods.nse
 /usr/share/nmap/scripts/xmpp-brute.nse
 /usr/share/nmap/scripts/xmpp-info.nse
-
-%files doc
-%defattr(0644,root,root,0755)
-%doc /usr/share/doc/nmap/*
+/usr/share/package-licenses/nmap/libpcre_LICENCE
 
 %files extras
 %defattr(-,root,root,-)
@@ -933,18 +931,18 @@ ln -s ncat.1 %{buildroot}/usr/share/man/man1/nc.1
 /usr/share/man/man1/ncat.1
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/nmap/COPYING
-/usr/share/doc/nmap/libdnet-stripped_LICENSE
-/usr/share/doc/nmap/liblinear_COPYRIGHT
-/usr/share/doc/nmap/libpcap_LICENSE
-/usr/share/doc/nmap/libssh2_COPYING
-/usr/share/doc/nmap/libz_contrib_dotzlib_LICENSE_1_0.txt
-/usr/share/doc/nmap/nping_COPYING
-/usr/share/doc/nmap/zenmap_COPYING_HIGWIDGETS
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/nmap/COPYING
+/usr/share/package-licenses/nmap/libdnet-stripped_LICENSE
+/usr/share/package-licenses/nmap/liblinear_COPYRIGHT
+/usr/share/package-licenses/nmap/libpcap_LICENSE
+/usr/share/package-licenses/nmap/libssh2_COPYING
+/usr/share/package-licenses/nmap/libz_contrib_dotzlib_LICENSE_1_0.txt
+/usr/share/package-licenses/nmap/nping_COPYING
+/usr/share/package-licenses/nmap/zenmap_COPYING_HIGWIDGETS
 
 %files man
-%defattr(-,root,root,-)
+%defattr(0644,root,root,0755)
 %exclude /usr/share/man/man1/nc.1
 %exclude /usr/share/man/man1/ncat.1
 /usr/share/man/de/man1/nmap.1
