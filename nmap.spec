@@ -4,7 +4,7 @@
 #
 Name     : nmap
 Version  : 7.70
-Release  : 9
+Release  : 10
 URL      : https://nmap.org/dist/nmap-7.70.tar.bz2
 Source0  : https://nmap.org/dist/nmap-7.70.tar.bz2
 Summary  : Network exploration tool and security scanner
