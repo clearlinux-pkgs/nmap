@@ -19,6 +19,7 @@ Configure miss: lua.h
 Configure miss: lua/lua.h usability
 Configure miss: lua/lua.h presence
 Configure miss: lua/lua.h
+Configure miss: library containing lua_isyieldable
 Configure miss: lua version == 503
 Configure miss: linear.h usability
 Configure miss: linear.h presence
@@ -125,6 +126,9 @@ Configure miss: netinet/ip_fil.h
 Configure miss: hpsecurity.h usability
 Configure miss: hpsecurity.h presence
 Configure miss: hpsecurity.h
+Configure miss: stropts.h usability
+Configure miss: stropts.h presence
+Configure miss: stropts.h
 Configure miss: sa_len in sockaddr struct
 Configure miss: rt_msghdr struct in <net/route.h>
 Configure miss: Berkeley Packet Filter
@@ -171,3 +175,5 @@ Configure miss: lua.h
 Configure miss: lua/lua.h usability
 Configure miss: lua/lua.h presence
 Configure miss: lua/lua.h
+Configure miss: library containing lua_isyieldable
+Configure miss: lua version >= 503

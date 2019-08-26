@@ -1,5 +1,5 @@
 PKG_NAME := nmap
-URL = https://nmap.org/dist/nmap-7.70.tar.bz2
+URL = https://nmap.org/dist/nmap-7.80.tgz
 ARCHIVES = 
 
 include ../common/Makefile.common

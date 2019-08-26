@@ -1,9 +1,10 @@
-7.70
+7.80
+apr-dev
+bzip2-dev
+flex
 libnl-dev
-zlib-dev
 libpcap-dev
 pcre-dev
-readline-dev
-bzip2-dev
 pkgconfig(zlib)
-apr-dev
+readline-dev
+zlib-dev
