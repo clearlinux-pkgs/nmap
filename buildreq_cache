@@ -1,10 +1,8 @@
-7.80
-apr-dev
+7.90
 bzip2-dev
-flex
 libnl-dev
 libpcap-dev
 pcre-dev
 pkgconfig(zlib)
+rdma-core-dev
 readline-dev
-zlib-dev

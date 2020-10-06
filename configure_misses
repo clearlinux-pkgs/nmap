@@ -25,12 +25,6 @@ Configure miss: linear.h usability
 Configure miss: linear.h presence
 Configure miss: linear.h
 Configure miss: if struct in_addr is a wacky huge structure (some Sun boxes)
-Configure miss: svn_client.h usability
-Configure miss: svn_client.h presence
-Configure miss: svn_client.h
-Configure miss: subversion-1/svn_client.h usability
-Configure miss: subversion-1/svn_client.h presence
-Configure miss: subversion-1/svn_client.h
 Configure miss: library containing nl_handle_alloc
 Configure miss: openssl/ssl.h usability
 Configure miss: openssl/ssl.h presence
@@ -142,6 +136,7 @@ Configure miss: mach-o/dyld.h presence
 Configure miss: mach-o/dyld.h
 Configure miss: if sockaddr{} has sa_len member
 Configure miss: asnprintf
+Configure miss: localtime_s
 Configure miss: openssl/ssl.h usability
 Configure miss: openssl/ssl.h presence
 Configure miss: openssl/ssl.h
