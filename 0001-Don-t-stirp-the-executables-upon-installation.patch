@@ -1,0 +1,50 @@
+From 86c017ac0ce99b874b0c33aa97bc4d54917a0830 Mon Sep 17 00:00:00 2001
+From: Thiago Macieira <thiago.macieira@intel.com>
+Date: Wed, 14 Oct 2020 17:45:11 -0700
+Subject: [PATCH] Don't stirp the executables upon installation
+
+---
+ Makefile.in       | 1 -
+ ncat/Makefile.in  | 1 -
+ nping/Makefile.in | 1 -
+ 3 files changed, 3 deletions(-)
+
+diff --git a/Makefile.in b/Makefile.in
+index 8236bbd6b..07e4988fc 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -318,7 +318,6 @@ install-nmap: $(TARGET)
+ 	$(INSTALL) -c -m 755 nmap $(DESTDIR)$(bindir)/nmap
+ # Use strip -x to avoid stripping dynamically loaded NSE functions. See
+ # http://seclists.org/nmap-dev/2007/q4/0272.html.
+-	$(STRIP) -x $(DESTDIR)$(bindir)/nmap
+ 	$(INSTALL) -c -m 644 docs/$(TARGET).1 $(DESTDIR)$(mandir)/man1/
+ 	if [ "$(USE_NLS)" = "yes" ]; then \
+ 	  for ll in $(filter $(ALL_LINGUAS),$(LINGUAS)); do \
+diff --git a/ncat/Makefile.in b/ncat/Makefile.in
+index 4632a78c8..7f12892d9 100644
+--- a/ncat/Makefile.in
++++ b/ncat/Makefile.in
+@@ -168,7 +168,6 @@ install: $(TARGET)
+ 	@echo Installing Ncat;
+ 	$(SHTOOL) mkdir -f -p -m 755 $(DESTDIR)$(bindir) $(DESTDIR)$(mandir)/man1
+ 	$(INSTALL) -c -m 755 ncat $(DESTDIR)$(bindir)/ncat
+-	$(STRIP) -x $(DESTDIR)$(bindir)/ncat
+ 	if [ -n "$(DATAFILES)" ]; then \
+ 		$(SHTOOL) mkdir -f -p -m 755 $(DESTDIR)$(pkgdatadir); \
+ 		$(INSTALL) -c -m 644 $(DATAFILES) $(DESTDIR)$(pkgdatadir)/; \
+diff --git a/nping/Makefile.in b/nping/Makefile.in
+index 3cf9c5593..f51b39744 100644
+--- a/nping/Makefile.in
++++ b/nping/Makefile.in
+@@ -128,7 +128,6 @@ install-nping: $(TARGET)
+ 	$(INSTALL) -c -m 755 nping $(DESTDIR)$(bindir)/nping
+ # Use strip -x to avoid stripping dynamically loaded NSE functions. See
+ # http://seclists.org/nmap-dev/2007/q4/0272.html.
+-	$(STRIP) -x $(DESTDIR)$(bindir)/nping
+ 	$(INSTALL) -c -m 644 docs/$(TARGET).1 $(DESTDIR)$(mandir)/man1/
+ 
+ 
+-- 
+2.28.0
+

@@ -4,7 +4,7 @@
 #
 Name     : nmap
 Version  : 7.91
-Release  : 13
+Release  : 14
 URL      : https://nmap.org/dist/nmap-7.91.tgz
 Source0  : https://nmap.org/dist/nmap-7.91.tgz
 Summary  : Multi-platform graphical Nmap frontend and results viewer
@@ -24,6 +24,7 @@ BuildRequires : pcre-dev
 BuildRequires : pkgconfig(zlib)
 BuildRequires : rdma-core-dev
 BuildRequires : readline-dev
+Patch1: 0001-Don-t-stirp-the-executables-upon-installation.patch
 
 %description
 Zenmap is an Nmap frontend. It is meant to be useful for advanced users
@@ -75,13 +76,14 @@ man components for the nmap package.
 %prep
 %setup -q -n nmap-7.91
 cd %{_builddir}/nmap-7.91
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1602519764
+export SOURCE_DATE_EPOCH=1602723093
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -101,7 +103,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check ||:
 
 %install
-export SOURCE_DATE_EPOCH=1602519764
+export SOURCE_DATE_EPOCH=1602723093
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/nmap
 cp %{_builddir}/nmap-7.91/docs/licenses/LIBLINEAR-license.txt %{buildroot}/usr/share/package-licenses/nmap/11b4aab10a36cb53cbc34914898f370c012e714e
