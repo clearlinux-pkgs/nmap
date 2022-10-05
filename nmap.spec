@@ -4,7 +4,7 @@
 #
 Name     : nmap
 Version  : 7.93
-Release  : 18
+Release  : 19
 URL      : https://nmap.org/dist/nmap-7.93.tgz
 Source0  : https://nmap.org/dist/nmap-7.93.tgz
 Summary  : Multi-platform graphical Nmap frontend and results viewer
@@ -83,15 +83,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1662134015
+export SOURCE_DATE_EPOCH=1664928160
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto -fstack-protector-strong -fzero-call-used-regs=used "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto -fstack-protector-strong -fzero-call-used-regs=used "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto -fstack-protector-strong -fzero-call-used-regs=used "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto -fstack-protector-strong -fzero-call-used-regs=used "
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 %configure --disable-static
 make  %{?_smp_mflags}
 
@@ -103,7 +103,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check ||:
 
 %install
-export SOURCE_DATE_EPOCH=1662134015
+export SOURCE_DATE_EPOCH=1664928160
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/nmap
 cp %{_builddir}/nmap-%{version}/docs/licenses/LIBLINEAR-license.txt %{buildroot}/usr/share/package-licenses/nmap/11b4aab10a36cb53cbc34914898f370c012e714e || :
