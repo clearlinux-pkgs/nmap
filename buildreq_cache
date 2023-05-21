@@ -1,8 +1,6 @@
-7.93
+7.94
 bzip2-dev
 libnl-dev
-libpcap-dev
+libssh2-dev
 pcre-dev
-pkgconfig(zlib)
-rdma-core-dev
 readline-dev
