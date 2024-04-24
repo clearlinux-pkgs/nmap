@@ -1,0 +1,33 @@
+From 601bc38bd11c104d99c69cf56a714141b53afdd4 Mon Sep 17 00:00:00 2001
+From: "Brett T. Warden" <brett.t.warden@intel.com>
+Date: Tue, 23 Apr 2024 15:51:20 -0700
+Subject: [PATCH] Make Python/pip installation work offline
+
+Don't attempt to build the zenmap Python application in a venv, in which
+pip would try to download dependencies from the internet. Instead just
+build it in the dir, using the dependencies we provide.
+---
+ Makefile.in | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Makefile.in b/Makefile.in
+index 9e1148d8f472..2f3c509e5bb1 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -360,11 +360,11 @@ tests/%: tests/%.cc $(OBJS)
+ DEFAULT_PYTHON_PATH = /usr/bin/env python3
+ 
+ build-zenmap: $(ZENMAPDIR)/pyproject.toml $(ZENMAPDIR)/zenmapCore/Version.py
+-	$(PYTHON) -m build $(ZENMAPDIR)/
++	$(PYTHON) -m build $(ZENMAPDIR)/ --no-isolation
+ 
+ install-zenmap: $(ZENMAPDIR)/pyproject.toml
+ 	$(INSTALL) -d $(DESTDIR)$(bindir) $(DESTDIR)$(mandir)/man1 $(DESTDIR)$(deskdir)
+-	$(PYTHON) -m pip install $(ZENMAPDIR)/ $(if $(DESTDIR),--root "$(DESTDIR)")
++	$(PYTHON) -m pip install --no-build-isolation $(ZENMAPDIR)/ $(if $(DESTDIR),--root "$(DESTDIR)")
+ 	$(INSTALL) -c -m 644 docs/zenmap.1 $(DESTDIR)$(mandir)/man1/
+ 	$(INSTALL) -c -m 644 $(ZENMAPDIR)/install_scripts/unix/*.desktop $(DESTDIR)$(deskdir)
+ # Create a symlink from nmapfe to zenmap if nmapfe doesn't exist or is
+-- 
+2.44.0
+

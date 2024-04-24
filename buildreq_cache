@@ -1,6 +1,7 @@
-7.94
-bzip2-dev
+7.95
+file
 libnl-dev
 libssh2-dev
-pcre-dev
-readline-dev
+pcre2-dev
+pypi(pygobject)
+pypi(setuptools)

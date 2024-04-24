@@ -1,2 +1,2 @@
-0001-Don-t-stirp-the-executables-upon-installation.patch
-#0002-Fix-a-Unix-domain-socket-crash.-Fixes-2154.patch
+0001-Don-t-strip-the-executables-upon-installation.patch
+0002-Make-Python-pip-installation-work-offline.patch

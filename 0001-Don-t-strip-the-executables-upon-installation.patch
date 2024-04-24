@@ -1,7 +1,7 @@
 From 86c017ac0ce99b874b0c33aa97bc4d54917a0830 Mon Sep 17 00:00:00 2001
 From: Thiago Macieira <thiago.macieira@intel.com>
 Date: Wed, 14 Oct 2020 17:45:11 -0700
-Subject: [PATCH] Don't stirp the executables upon installation
+Subject: [PATCH] Don't strip the executables upon installation
 
 ---
  Makefile.in       | 1 -
