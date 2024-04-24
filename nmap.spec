@@ -7,7 +7,7 @@
 #
 Name     : nmap
 Version  : 7.95
-Release  : 24
+Release  : 25
 URL      : https://nmap.org/dist/nmap-7.95.tgz
 Source0  : https://nmap.org/dist/nmap-7.95.tgz
 Summary  : Network exploration tool and security scanner
@@ -128,7 +128,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1713918096
+export SOURCE_DATE_EPOCH=1713918562
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -180,7 +180,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1713918096
+export SOURCE_DATE_EPOCH=1713918562
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/nmap
 cp %{_builddir}/nmap-%{version}/docs/licenses/BSD-modified.txt %{buildroot}/usr/share/package-licenses/nmap/bf0cb439d0ca55615b5060ee09d77af3ddc9518d || :
@@ -210,6 +210,8 @@ pushd ../buildavx2/
 popd
 GOAMD64=v2
 %make_install
+## Remove excluded files
+rm -f %{buildroot}*/usr/bin/uninstall_*
 ## install_append content
 ln -s ncat %{buildroot}/usr/bin/nc
 ln -s ncat.1 %{buildroot}/usr/share/man/man1/nc.1
@@ -227,7 +229,6 @@ ln -s ncat.1 %{buildroot}/usr/share/man/man1/nc.1
 /usr/bin/nmap
 /usr/bin/nmapfe
 /usr/bin/nping
-/usr/bin/uninstall_ndiff
 /usr/bin/xnmap
 /usr/bin/zenmap
 
