@@ -7,7 +7,7 @@
 #
 Name     : nmap
 Version  : 7.95
-Release  : 27
+Release  : 28
 URL      : https://nmap.org/dist/nmap-7.95.tgz
 Source0  : https://nmap.org/dist/nmap-7.95.tgz
 Summary  : Network exploration tool and security scanner
